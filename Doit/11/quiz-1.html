@@ -1,23 +1,22 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <title>연습문제 1</title>  
   <style>
-    img {
-      margin-right:50px;
-      border:1px solid #ccc;
-      box-shadow: 2px 2px 5px #ccc;
+    * {
+      box-sizing: border-box;
     }
-  </style>
-</head>
-<body>
-  <img src="images/1.jpg" alt="">
-  <img src="images/2.jpg" alt="">
-  <img src="images/3.jpg" alt="">
-</body>
-</html>
-li {
+    .top-menu {
+      margin:50px auto;
+      padding:0;
+      list-style:none;
+      width:605px;
+      height:35px;
+      box-shadow:0 3px 4px #8b8b8b;
+      background-color:#dadada;
+    }
+    .top-menu li {
       float:left;
       border-right:1px solid #929292;
     }
@@ -29,6 +28,7 @@ li {
       width:100px;
       height:35px;
       line-height: 35px;
+			transition: 0.2s ease-in;
     }
     .top-menu li:last-child {
       border-right:none;      
