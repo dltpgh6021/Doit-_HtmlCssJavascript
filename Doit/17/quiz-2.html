@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>현재 시간 보기</title>
-  <style>
-    #container{
-      width:200px;
-      margin:50px auto;
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 2</title>
+	<style>
+    form {
+      margin-bottom:30px;
+    }
+    input[type="text"] {
+      width:30px;
+      height:20px;
+      text-align: center;
     }
     button {
-      border:1px solid #ccc;
-      background:#fff;
-      padding:20px 30px;
+      margin-left:10px;
     }
-  </style>
+    table {
+      width:300px;      
+    }
+    table, td {
+      border:1px solid #ccc;
+      border-collapse: collapse;
+    }
+    td {
+      padding:10px;
+    }
+	</style>
 </head>
 <body>
-  <div id="container">
-    <button id="bttn">현재 시간 보기</button>
-  </div>
-
-  <script>
-    document.getElementById('bttn').onclick = displayTime;  // 버튼 클릭하면 displayTime 함수 실행
-
-    function displayTime(){        
-      
-      // window.open() 메서드를 사용해서 current.html 파일을 팝업 창으로 표시하세요.
-      // 팝업 창은 화면 중앙에 표시합니다.
-
-    }
-  </script>
+	<form>
+		<input type="text" id="rCount" value="1">행
+		<input type="text" id="cCount" value="1">열
+		<button onclick="drawTable(); return false;">작성</button>
+	</form>
+	
+	<div id="contents"></div>
+	
+	<script>
+		function drawTable() {
+			var rCount = document.querySelector("#rCount").value;
+			var cCount = document.querySelector("#cCount").value;
+			
+			var newTable = document.createElement("table");
+			for(i = 0; i < rCount; i++) {
+				var newRow = document.createElement("tr");
+				for(j = 0; j < cCount; j++) {
+					var newCell = document.createElement("td");
+					var cellText = document.createTextNode(i + ", " + j);
+					newCell.appendChild(cellText);
+					newRow.appendChild(newCell);
+				}
+				newTable.appendChild(newRow);
+			}
+			var contents = document.querySelector("#contents");
+			contents.appendChild(newTable);
+		}
+	</script>
 </body>
 </html>
